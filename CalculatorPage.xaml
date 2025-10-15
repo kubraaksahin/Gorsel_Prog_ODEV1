@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MauiApp3.CalculatorPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:MauiApp3"
+    mc:Ignorable="d"
+    Title="Standart">
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="TextColor" Value="Blue"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Mb">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="TextColor" Value="Blue"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="Auto,2*,*,*,*,*,*,*,*"
+          ColumnDefinitions="*,*,*,*" Margin="5">
+
+        <Label x:Name="lblHistory" Text="" HorizontalTextAlignment="End"
+               FontSize="Large" Margin="5"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <Entry x:Name="cScreen" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" 
+               FontSize="48" Text="0"
+               HorizontalTextAlignment="End"/>
+
+        <Grid ColumnDefinitions="*,*,*,*,*,*" Grid.Row="2" Grid.ColumnSpan="4">
+            <Button Text="MC" Grid.Column="0" Style="{d:StaticResource Mb}" Clicked="MC_Clicked"/>
+            <Button Text="MR" Grid.Column="1" Style="{d:StaticResource Mb}" Clicked="MR_Clicked" />
+            <Button Text="M+" Grid.Column="2" Style="{d:StaticResource Mb}" Clicked="MPlus_Clicked"/>
+            <Button Text="M-" Grid.Column="3" Style="{d:StaticResource Mb}" Clicked="MMinus_Clicked"/>
+            <Button Text="MS" Grid.Column="4" Style="{d:StaticResource Mb}" Clicked="MS_Clicked"/>
+            <Button Text="Mv" Grid.Column="5" Style="{d:StaticResource Mb}" Clicked="Mv_Clicked"/>
+            <Label x:Name="lblMemoryIndicator" Text="" />
+
+        </Grid>
+
+        <Button Grid.Row="3" Grid.Column="0" Text="%" Clicked="OperatorClicked"/>
+        <Button Grid.Row="3" Grid.Column="1" Text="CE" Clicked="CLR_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="2" Text="C" Clicked="Clear_Clicked"/>
+        <Button Grid.Row="3" Grid.Column="3" Text="««" Clicked="BackSpaceClicked" />
+
+        <Button Grid.Row="4" Grid.Column="0" Text="1/x" Clicked="OperatorClicked"/>
+        <Button Grid.Row="4" Grid.Column="1" Text="x²" Clicked="Square_Clicked"/>
+        <Button Grid.Row="4" Grid.Column="2" Text="²√x" Clicked="Sqrt_Clicked"/>
+        <Button Grid.Row="4" Grid.Column="3" Text="÷" Clicked="OperatorClicked"/>
+
+        <Button Grid.Row="5" Grid.Column="0" Text="7" Clicked="NumClicked"/>
+        <Button Grid.Row="5" Grid.Column="1" Text="8" Clicked="NumClicked"/>
+        <Button Grid.Row="5" Grid.Column="2" Text="9" Clicked="NumClicked"/>
+        <Button Grid.Row="5" Grid.Column="3" Text="x" Clicked="OperatorClicked"/>
+
+        <Button Grid.Row="6" Grid.Column="0" Text="4" Clicked="NumClicked"/>
+        <Button Grid.Row="6" Grid.Column="1" Text="5" Clicked="NumClicked"/>
+        <Button Grid.Row="6" Grid.Column="2" Text="6" Clicked="NumClicked"/>
+        <Button Grid.Row="6" Grid.Column="3" Text="-" Clicked="OperatorClicked"/>
+
+        <Button Grid.Row="7" Grid.Column="0" Text="1" Clicked="NumClicked"/>
+        <Button Grid.Row="7" Grid.Column="1" Text="2" Clicked="NumClicked"/>
+        <Button Grid.Row="7" Grid.Column="2" Text="3" Clicked="NumClicked"/>
+        <Button Grid.Row="7" Grid.Column="3" Text="+" Clicked="OperatorClicked"/>
+
+        <Button Grid.Row="8" Grid.Column="0" Text="+/-"  Clicked="PMClicked"/> 
+        <Button Grid.Row="8" Grid.Column="1" Text="0" Clicked="NumClicked"/>
+        <Button Grid.Row="8" Grid.Column="2" Text="," Clicked="DecimalClicked"/>
+        <Button Grid.Row="8" Grid.Column="3" Text="=" Clicked="EqualClicked"
+                Background="DarkSlateBlue"
+                TextColor="White"
+                FontSize="30"/>
+
+    </Grid>
+
+
+</ContentPage>
